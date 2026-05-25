@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "name": "Vestido Midi Floral",
+    "description": "Vestido midi con estampado floral. Perfecto para ocasiones especiales y eventos formales.",
+    "price": 12500,
+    "image": "/img/Vestido Midi Floral.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Remeras de Algodón",
+    "description": "Remeras cómodas y transpirables hechas de algodón 100%. Ideales para días calurosos y actividades al aire libre.",
+    "price": 12500,
+    "image": "/img/Remeras.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Jeans",
+    "description": "Pantalones de mezclilla ajustados con corte clásico. Hechos de algodón de alta calidad para un ajuste cómodo y duradero.",
+    "price": 28900,
+    "image": "/img/Jeans.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Falda Plisada Terracota",
+    "description": "Falda plisada en tela de algodón color terracota. Diseño clásico y elegante, perfecto para ocasiones casuales y formales.",
+    "price": 35000,
+    "image": "/img/Falda.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Cardigan Crema",
+    "description": "Cardigan suave y cálido en tejido de lana. Diseño clásico con cuello redondo y mangas raglán, perfecto para capas de abrigo.",
+    "price": 42000,
+    "image": "/img/Cardigan Crema.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Camperas",
+    "description": "Camperas de verano en tela ligera y transpirable. Diseño moderno y cómodo, ideal para días soleados y actividades al aire libre.",
+    "price": 45500,
+    "image": "/img/Camperas.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Camisa de Lino",
+    "description": "Camisa de lino ligero y transpirable. Diseño clásico y elegante, perfecta para días calurosos y ocasiones formales.",
+    "price": 38000,
+    "image": "/img/Camisa de Lino.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Blazer Oversize Beige",
+    "description": "Blazer de estilo oversize en tejido de lana. Diseño moderno y elegante, perfecto para crear looks sofisticados en ocasiones formales.",
+    "price": 45500,
+    "image": "/img/Blazer Oversize Beige.jpg"
+  }
+
+]

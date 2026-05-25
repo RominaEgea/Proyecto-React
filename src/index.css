@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Jost:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #faf8f5;
+  --color-surface: #ffffff;
+  --color-primary: #1a1a1a;
+  --color-secondary: #6b5c4e;
+  --color-accent: #c9a96e;
+  --color-accent-light: #f0e6d3;
+  --color-muted: #9e9087;
+  --color-border: #e8e0d5;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Jost', sans-serif;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 2px 8px rgba(26,26,26,0.06);
+  --shadow-md: 0 8px 32px rgba(26,26,26,0.10);
+  --shadow-lg: 0 20px 60px rgba(26,26,26,0.14);
+  --radius: 4px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }

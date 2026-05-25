@@ -1,0 +1,23 @@
+.products-page__header {
+  background-color: var(--color-accent-light);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.products-page__header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.products-page__title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.products-page__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-secondary);
+}
