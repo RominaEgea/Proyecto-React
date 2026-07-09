@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Nav } from "../Nav/Nav";
 import { CartWidget } from "../CartWidget/CartWidget";
-import logo from "../../../public/Logo.png";
 import "./Header.css";
 
 export const Header = () => {
@@ -10,7 +9,6 @@ export const Header = () => {
       <div className="header__top">
         <p className="header__announcement">✦ Envío gratis en compras mayores a $30.000 ✦</p>
       </div>
-      <img src={logo} className="header__logo-img" alt="Romina S.A." />
       <div className="header__main">
         <Link to="/" className="header__logo">
           <span className="header__logo-text">Romina</span>

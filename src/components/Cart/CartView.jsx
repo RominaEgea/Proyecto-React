@@ -1,28 +1,21 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../../context/CartContext";
 import { CartList } from "./CartList";
 import { CartSummary } from "./CartSummary";
-
 import "./Cart.css";
 
-export const CartView = () => {
-  const { cart } = useCart();
-
+export const CartView = ({ hasItems }) => {
   return (
     <section className="cart-container">
       <h1>Tu carrito de compras 🛒</h1>
-
-      {cart.length ? (
+      {hasItems ? (
         <>
           <CartList />
           <CartSummary />
         </>
       ) : (
         <>
-          <p className="empty-cart">Tu carrito esta listo para tus compras</p>
-          <Link className="btn primary bg-primary" to={"/"}>
-            Volver
-          </Link>
+          <p className="empty-cart">Tu carrito está listo para tus compras</p>
+          <Link className="btn primary bg-primary" to="/">Volver</Link>
         </>
       )}
     </section>

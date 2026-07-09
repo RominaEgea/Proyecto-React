@@ -1,38 +1,36 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
+  const { addToCart } = useCart();
 
-  const [itemDetail, setItemDetail] = useState(null);
+  const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    fetch("/data/products.json")
+    fetch("/productos.json")
       .then((res) => res.json())
       .then((data) => {
-        const item = data.find((element) => String(element.id) === id);
-        if (item) {
-          setItemDetail(item);
-          return;
-        }
-
-        throw new Error("Elemento no encontrado");
+        const found = data.find((p) => String(p.id) === String(id));
+        setProduct(found || null);
       })
-      .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, []);
+  }, [id]);
 
-  if (loading) return <p>Cargando...</p>;
-  if (!itemDetail) return <p>Producto no encontrado</p>;
+  if (loading) return <p>Cargando producto…</p>;
+  if (!product) return <p>Producto no encontrado</p>;
 
   return (
-    <section>
-      <h1>Detalles del producto</h1>
-      <div className="products-container">
-        <ItemDetail item={itemDetail} />
-      </div>
-    </section>
+    <ItemDetail
+      product={product}
+      quantity={quantity}
+      onAdd={() => setQuantity((q) => Math.min(product.stock || 99, q + 1))}
+      onSubtract={() => setQuantity((q) => Math.max(1, q - 1))}
+      onAddToCart={() => addToCart(product, quantity)}
+    />
   );
 };

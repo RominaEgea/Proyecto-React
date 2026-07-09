@@ -41,7 +41,6 @@ export const Footer = () => {
           <h4 className="footer__heading">Navegación</h4>
           <ul className="footer__list">
             <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/productos">Productos</Link></li>
             <li><Link to="/carrito">Carrito</Link></li>
           </ul>
         </div>

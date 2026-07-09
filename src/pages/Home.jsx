@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ItemListContainer } from "../components/ItemListContainer/ItemListContainer";
 import "./Home.css";
-import logo from "../../public/img/moda.jpg";
 
 export const Home = () => {
   return (
@@ -25,7 +24,8 @@ export const Home = () => {
         <div className="hero__visual">
           <div className="hero__img-wrap">
             <img
-              src={logo}    alt="Moda Romina SA"
+              src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=700&q=85"
+              alt="Moda Romina SA"
             />
           </div>
           <div className="hero__badge">
