@@ -12,7 +12,9 @@ export const ItemListContainer = ({ title }) => {
   useEffect(() => {
     getDocs(collection(db, "productos"))
       .then((snapshot) => {
-        const data = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
+        const data = snapshot.docs
+          .map((d) => ({ id: d.id, ...d.data() }))
+          .filter((p) => p.stock === undefined || p.stock === null || p.stock > 0);
         setProducts(data);
       })
       .catch((err) => setError(err.message))

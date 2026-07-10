@@ -19,7 +19,16 @@ export const ItemDetailContainer = () => {
     setLoading(true);
     getDoc(doc(db, "productos", id))
       .then((snap) => {
-        setProduct(snap.exists() ? { id: snap.id, ...snap.data() } : null);
+        if (snap.exists()) {
+          const data = { id: snap.id, ...snap.data() };
+          if (data.stock !== undefined && data.stock !== null && data.stock <= 0) {
+            setProduct(null);
+          } else {
+            setProduct(data);
+          }
+        } else {
+          setProduct(null);
+        }
       })
       .finally(() => setLoading(false));
   }, [id]);

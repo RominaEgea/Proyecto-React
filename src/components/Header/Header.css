@@ -24,12 +24,12 @@
 .header__main {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
-  height: 72px;
+  padding: 0 1rem; /* Móvil por defecto */
+  height: 60px;    /* Móvil por defecto */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;       /* Móvil por defecto */
 }
 
 .header__logo {
@@ -49,7 +49,7 @@
 
 .header__logo-text {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.4rem; /* Móvil por defecto */
   font-weight: 900;
   font-style: italic;
   color: var(--color-primary);
@@ -72,7 +72,14 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-  .header__main { padding: 0 1rem; height: 60px; }
-  .header__logo-text { font-size: 1.4rem; }
+/* Pantallas medianas y grandes (>= 768px) */
+@media (min-width: 768px) {
+  .header__main {
+    padding: 0 2rem;
+    height: 72px;
+    gap: 2rem;
+  }
+  .header__logo-text {
+    font-size: 1.75rem;
+  }
 }
