@@ -39,6 +39,14 @@
   flex-shrink: 0;
 }
 
+.header__logo-img {
+    width: 125px; /* Ajusta el ancho para definir la escala del óvalo */
+    height: 50px; /* Ajusta el alto si deseas que sea un círculo perfecto */
+    margin: 1rem;
+    border-radius: 80%; /* Esta propiedad recorta los bordes en forma circular/ovalada */
+}
+
+
 .header__logo-text {
   font-family: var(--font-display);
   font-size: 1.75rem;
