@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 const CartContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components -- Patrón intencional: hook + Provider en el mismo Context.
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) throw new Error("useCart debe usarse dentro de un CartProvider");

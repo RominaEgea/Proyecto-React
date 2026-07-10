@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebase";
 import { useCart } from "../../context/CartContext";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
+import "../ItemDetail/ItemDetail.css";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -12,17 +15,33 @@ export const ItemDetailContainer = () => {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    fetch("/productos.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const found = data.find((p) => String(p.id) === String(id));
-        setProduct(found || null);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- se re-ejecuta al cambiar `id` (navegación entre productos)
+    setLoading(true);
+    getDoc(doc(db, "productos", id))
+      .then((snap) => {
+        setProduct(snap.exists() ? { id: snap.id, ...snap.data() } : null);
       })
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) return <p>Cargando producto…</p>;
-  if (!product) return <p>Producto no encontrado</p>;
+  if (loading) {
+    return (
+      <div className="detail__loading">
+        <div className="detail__spinner" />
+        <p>Cargando producto…</p>
+      </div>
+    );
+  }
+
+  if (!product) {
+    return (
+      <div className="detail__not-found">
+        <h2>Producto no encontrado</h2>
+        <p>Puede que el producto haya sido eliminado o el enlace sea incorrecto.</p>
+        <Link to="/productos" className="detail__go-cart">Volver al catálogo</Link>
+      </div>
+    );
+  }
 
   return (
     <ItemDetail
