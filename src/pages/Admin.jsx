@@ -233,33 +233,37 @@ export const Admin = () => {
         {error && <p className="admin__form-error">⚠ {error}</p>}
 
         {!loading && !error && (
-          <table className="admin__table">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Nombre</th>
-                <th>Categoría</th>
-                <th>Precio</th>
-                <th>Stock</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {products.map((p) => (
-                <tr key={p.id}>
-                  <td><img src={p.image} alt={p.name} className="admin__thumb" /></td>
-                  <td>{p.name}</td>
-                  <td>{p.category || "—"}</td>
-                  <td>${Number(p.price).toLocaleString("es-AR")}</td>
-                  <td>{p.stock ?? "—"}</td>
-                  <td className="admin__actions">
-                    <button className="admin__btn admin__btn--edit" onClick={() => handleEdit(p)}>Editar</button>
-                    <button className="admin__btn admin__btn--delete" onClick={() => setDeleteModal(p.id)}>Eliminar</button>
-                  </td>
+          <div className="admin__table-wrapper">
+            <table className="admin__table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Nombre</th>
+                  <th>Categoría</th>
+                  <th>Precio</th>
+                  <th>Stock</th>
+                  <th></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {products.map((p) => (
+                  <tr key={p.id}>
+                    <td data-label="">
+                      <img src={p.image} alt={p.name} className="admin__thumb" />
+                    </td>
+                    <td data-label="Nombre">{p.name}</td>
+                    <td data-label="Categoría">{p.category || "—"}</td>
+                    <td data-label="Precio">${Number(p.price).toLocaleString("es-AR")}</td>
+                    <td data-label="Stock">{p.stock ?? "—"}</td>
+                    <td data-label="" className="admin__actions">
+                      <button className="admin__btn admin__btn--edit" onClick={() => handleEdit(p)}>Editar</button>
+                      <button className="admin__btn admin__btn--delete" onClick={() => setDeleteModal(p.id)}>Eliminar</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
 
